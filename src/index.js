@@ -8,8 +8,8 @@ const bot = new Telegraf(process.env.BOT_TOKEN)
 // Comandos
 
 
-let neko = await nekoclient.neko();
-console.log(neko.neko);
+let nekos = await nekoclient.neko();
+console.log(nekos.url);
 
 
 bot.command('neko', ctx => {
