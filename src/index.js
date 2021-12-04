@@ -29,12 +29,9 @@ bot.command('teste', ctx => {
     })
 })
 
-async function work() {
-  let owo = await neko.sfw.OwOify({text: 'This lib is really awesome!'});
-  console.log(owo);
-}
- 
-work();
+
+neko.nsfw.neko().then(neko => {console.log(neko.url);});
+
 
 const startBot = async () => {
     try {
