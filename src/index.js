@@ -8,12 +8,12 @@ const bot = new Telegraf(process.env.BOT_TOKEN)
 // Comandos
 
 
-bot.command("nekos", (ctx) =>
+bot.command("wall", (ctx) =>
     request({
-        url: 'https://nekos.life/api/v2/img/neko',
+        url: 'https://nekos.life/api/v2/img/wallpaper',
         json: true
       }, function(error, response, body) {
-        ctx.replyWithPhoto(body.url);
+        ctx.replyWithDocument(body.url);
     })
 );
 
