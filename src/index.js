@@ -1,15 +1,15 @@
 require('dotenv').config({ path: 'process.env' })
 const { Telegraf } = require('telegraf')
 const axios = require('axios')
-const nekolife = require('nekos.life');
-const neko = new nekolife();
-
+const neko = require("nekolife.js");
+let nekoclient = new Neko.Client();
 const bot = new Telegraf(process.env.BOT_TOKEN)
 
 // Comandos
 
 
-async let GIF = await neko.sfw.neko();
+let neko = await nekoclient.neko();
+console.log(neko.neko);
 
 
 bot.command('neko', ctx => {
