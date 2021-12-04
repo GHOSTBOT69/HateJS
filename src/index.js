@@ -7,4 +7,14 @@ const bot = new Telegraf(process.env.BOT_TOKEN)
 // Comandos
 bot.start((ctx) => ctx.reply("Maconha"))
 
-bot.launch()
+
+const startBot = async () => {
+    try {
+        await bot.launch()
+        console.log('Bot iniciado')
+    } catch(error) {
+        console.error(error)
+    }
+}
+
+startBot()
