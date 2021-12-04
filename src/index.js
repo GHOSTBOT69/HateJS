@@ -1,5 +1,8 @@
 require('dotenv').config({ path: 'process.env' })
 const { Telegraf } = require('telegraf')
+const axios = require('axios')
+const nekolife = require('nekos.life');
+const neko = new nekolife();
 
 const bot = new Telegraf(process.env.BOT_TOKEN)
 
@@ -25,6 +28,10 @@ bot.command('teste', ctx => {
         }
     })
 })
+
+
+neko.nsfw.neko().then(neko => {console.log(neko);});
+
 
 const startBot = async () => {
     try {
