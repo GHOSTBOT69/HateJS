@@ -7,7 +7,4 @@ const bot = new Telegraf(process.env.BOT_TOKEN)
 bot.command('quit', (ctx) => {
   // Explicit usage
   ctx.telegram.leaveChat(ctx.message.chat.id)
-
-  // Using context shortcut
-  ctx.leaveChat()
 })
