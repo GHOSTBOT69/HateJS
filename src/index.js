@@ -1,12 +1,19 @@
 require('dotenv').config({ path: 'process.env' })
 const { Telegraf } = require('telegraf')
+const { fetchJson, fetchText } = require('./lib/fetcher')
 const axios = require('axios')
 const nekolife = require('nekos.life');
 const neko = new nekolife();
 
+
+
 const bot = new Telegraf(process.env.BOT_TOKEN)
 
 // Comandos
+
+let neko = await fetchJson(`https://nekos.life/api/v2/img/neko`, {method: 'get'})
+
+console.log(neko)
 
 bot.command('teste', ctx => {
     console.log(ctx.from)
@@ -29,11 +36,10 @@ bot.command('teste', ctx => {
     })
 })
 
-neko.nsfw.neko().then(neko => {console.log(neko.url);});
 
 bot.action('neko', ctx => {
     bot.telegram.sendPhoto(ctx.chat.id, {
-        source: neko.url
+        source: "nada"
     })
 
 })
