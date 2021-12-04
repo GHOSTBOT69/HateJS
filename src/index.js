@@ -1,4 +1,5 @@
 require('dotenv').config({ path: 'process.env' })
+const request = require('request');
 const { Telegraf } = require('telegraf')
 const axios = require('axios')
 const neko = require("nekolife.js");
@@ -8,16 +9,15 @@ const bot = new Telegraf(process.env.BOT_TOKEN)
 // Comandos
 
 
-let nekos = await nekoclient.neko();
-console.log(nekos.url);
-
-
-bot.command('neko', ctx => {
-    bot.telegram.sendPhoto(ctx.chat.id, {
-        source: GIF.url
+bot.command("nekos", (ctx) =>
+    request({
+        url: 'https://nekos.life/api/v2/img/neko',
+        json: true
+      }, function(error, response, body) {
+        ctx.replyWithPhoto(body.url);
     })
+);
 
-})
 
 
 const startBot = async () => {
