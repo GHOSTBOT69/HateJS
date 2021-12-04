@@ -8,7 +8,8 @@ const bot = new Telegraf(process.env.BOT_TOKEN)
 // Comandos
 
 bot.command('teste', ctx => {
-bot.telegram.sendMessage(ctx.chat.id, animalMessage, {
+let testMessage = `test`;
+bot.telegram.sendMessage(ctx.chat.id, testMessage, {
         reply_markup: {
             inline_keyboard: [
                 [{
