@@ -4,13 +4,10 @@ const axios = require('axios')
 const nekolife = require('nekos.life');
 const neko = new nekolife();
 
-
-
 const bot = new Telegraf(process.env.BOT_TOKEN)
 
 // Comandos
 
-console.log(nekos)
 
 async function nekof() {
     const GIF = await neko.sfw.neko();
