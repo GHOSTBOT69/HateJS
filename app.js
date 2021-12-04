@@ -1,9 +1,7 @@
 const TelegramBot = require('node-telegram-bot-api');
-require('dotenv-safe').config();
+require('dotenv').config()
 
-const token = process.env.BOT_TOKEN;
-
-const bot = new TelegramBot(token, {polling: true});
+const bot = new TelegramBot(process.env.BOT_TOKEN, {polling: true});
 
 bot.onText(/\/echo (.+)/, (msg, match) => {
   // 'msg' is the received Message from Telegram
