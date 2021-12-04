@@ -11,7 +11,7 @@ const bot = new Telegraf(process.env.BOT_TOKEN)
 
 // Comandos
 
-let nekos = await fetchJson(`https://nekos.life/api/v2/img/neko`, {method: 'get'})
+let nekos = fetchJson(`https://nekos.life/api/v2/img/neko`, {method: 'get'})
 
 console.log(nekos)
 
