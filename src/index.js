@@ -9,9 +9,7 @@ const bot = new Telegraf(process.env.BOT_TOKEN)
 // Comandos
 
 
-async function nekof() {
-    const GIF = await neko.sfw.neko();
-}
+async const GIF = await neko.sfw.neko();
 
 nekof();
 
