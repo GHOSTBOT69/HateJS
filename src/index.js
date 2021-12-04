@@ -5,44 +5,26 @@ const bot = new Telegraf(process.env.BOT_TOKEN)
 
 // Comandos
 
-bot.hears('animals', ctx => {
+bot.command('teste', ctx => {
     console.log(ctx.from)
-    let animalMessage = `great, here are pictures of animals you would love`;
+    let testMessage = ``;
     ctx.deleteMessage();
-    bot.telegram.sendMessage(ctx.chat.id, animalMessage, {
+    bot.telegram.sendMessage(ctx.chat.id, testMessage, {
         reply_markup: {
             inline_keyboard: [
                 [{
-                        text: "dog",
-                        callback_data: 'dog'
+                        text: "teste 1",
+                        url: 'https://www.google.com/'
                     },
                     {
-                        text: "cat",
-                        callback_data: 'cat'
+                        text: "teste 2",
+                        url: 'https://github.com/'
                     }
                 ],
 
             ]
         }
     })
-})
-
-//method that returns image of a dog
-
-bot.action('dog', ctx => {
-    bot.telegram.sendPhoto(ctx.chat.id, {
-        source: "res/dog.jpeg"
-    })
-
-})
-
-//method that returns image of a cat 
-
-bot.action('cat', ctx => {
-    bot.telegram.sendPhoto(ctx.chat.id, {
-        source: "res/cat.jpeg"
-    })
-
 })
 
 const startBot = async () => {
