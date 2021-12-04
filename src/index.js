@@ -7,8 +7,7 @@ const bot = new Telegraf(process.env.BOT_TOKEN)
 
 bot.command('teste', ctx => {
     console.log(ctx.from)
-    let testMessage = ``;
-    ctx.deleteMessage();
+    let testMessage = `maconha`;
     bot.telegram.sendMessage(ctx.chat.id, testMessage, {
         reply_markup: {
             inline_keyboard: [
