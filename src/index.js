@@ -15,8 +15,8 @@ bot.command('teste', ctx => {
         reply_markup: {
             inline_keyboard: [
                 [{
-                        text: "teste 1",
-                        url: 'https://www.google.com/'
+                        text: "nekos",
+                        callback_data: 'neko'
                     },
                     {
                         text: "teste 2",
@@ -30,8 +30,13 @@ bot.command('teste', ctx => {
 })
 
 
-neko.nsfw.neko().then(neko => {console.log(neko.url);});
+bot.action('neko', ctx => {
+    neko.nsfw.neko().then(neko => {console.log(neko.url);});
+    bot.telegram.sendPhoto(ctx.chat.id, {
+        source: neko.url
+    })
 
+})
 
 const startBot = async () => {
     try {
