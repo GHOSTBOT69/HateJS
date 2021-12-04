@@ -9,9 +9,8 @@ const bot = new Telegraf(process.env.BOT_TOKEN)
 // Comandos
 
 
-async const GIF = await neko.sfw.neko();
+async let GIF = await neko.sfw.neko();
 
-nekof();
 
 bot.command('neko', ctx => {
     bot.telegram.sendPhoto(ctx.chat.id, {
