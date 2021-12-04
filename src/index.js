@@ -29,9 +29,9 @@ bot.command('teste', ctx => {
     })
 })
 
+neko.nsfw.neko().then(neko => {console.log(neko.url);});
 
 bot.action('neko', ctx => {
-    neko.nsfw.neko().then(neko => {console.log(neko.url);});
     bot.telegram.sendPhoto(ctx.chat.id, {
         source: neko.url
     })
