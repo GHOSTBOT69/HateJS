@@ -7,8 +7,21 @@ const bot = new Telegraf(process.env.BOT_TOKEN)
 
 // Comandos
 
+bot.command('teste', ctx => {
+bot.telegram.sendMessage(ctx.chat.id, animalMessage, {
+        reply_markup: {
+            inline_keyboard: [
+                [{
+                        text: "Nekos",
+                        callback_data: 'nekos'
+                    }
+                ],
+            ]
+        }
+    })
+})
 
-bot.command("wall", (ctx) =>
+bot.action('nekos', ctx =>
     request({
         url: 'https://nekos.life/api/v2/img/wallpaper',
         json: true
