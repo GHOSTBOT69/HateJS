@@ -1,6 +1,6 @@
 require('dotenv').config({ path: 'process.env' })
 const { Telegraf } = require('telegraf')
-const { fetchJson, fetchText } = require('./lib/fetcher')
+const { fetchJson, fetchText } = require('/lib/fetcher')
 const axios = require('axios')
 const nekolife = require('nekos.life');
 const neko = new nekolife();
