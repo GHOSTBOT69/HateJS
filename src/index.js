@@ -35,7 +35,7 @@ bot.action('nekos', ctx =>
 bot.command('boobs', ctx => {
     axios.get('https://nekos.life/api/v2/img/boobs')
     .then(res => { 
-         let la = res.url
+         let la = res.data.url
          ctx.replyWithAnimation(la)
     }).catch(e => {
          console.log(e);
