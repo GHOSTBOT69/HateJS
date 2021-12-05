@@ -20,7 +20,7 @@ const scathach = new scat();
 bot.command('oral', ctx => {
          let orall = scathach.sex.oral()
          let lav = orall.url
-         ctx.replyMessage(lav)
+         ctx.sendMessage(ctx.chat.id, lav)
     }).catch(e => {
          console.log(e);
    })
