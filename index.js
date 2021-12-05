@@ -8,7 +8,7 @@ const { join } = require('path');
 
 // Clients
 const cooldown = new Set();
-const { log, error } = require(join(__dirname, 'util'));
+const { log, error } = require(join(__dirname, 'utils'));
 const bot = new Telegraf(process.env.BOT_TOKEN)
 
 // =============
@@ -24,8 +24,13 @@ bot.on('message', async ctx => {
         await ctx.replyWithPhoto({
             source: Buffer.from(waifu.image, 'base64'),
             filename: 'waifu.png',
-        })
-
+        });
+    }catch(err){
+        error(ctx);
+        await ctx.reply('Error occurred').catch(() => {});
+    }
+    cooldown.delete(ctx.chat.id);
+});
 
 bot.command('teste', ctx => {
 let testMessage = `Apenas teste`;
