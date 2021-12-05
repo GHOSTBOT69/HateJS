@@ -98,14 +98,6 @@ bot.telegram.sendPhoto(ctx.chat.id, las, {
 })
 })
 
-bot.action('walledit', ctx => {
-  axios.get('https://nekos.life/api/v2/img/wallpaper')
-    .then(res => {
-      let lass = res.data.url
-      bot.telegram.editMessageMedia(ctx.chat.id, ctx.update.callback_query.message.message_id, media: lass)
-    })
-})
-
 
 // teste 
 bot.command('boobs', ctx => {
