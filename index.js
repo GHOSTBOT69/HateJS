@@ -24,13 +24,7 @@ bot.on('message', async ctx => {
         await ctx.replyWithPhoto({
             source: Buffer.from(waifu.image, 'base64'),
             filename: 'waifu.png',
-        });
-    }catch(err){
-        error(ctx);
-        await ctx.reply('Error occurred').catch(() => {});
-    }
-    cooldown.delete(ctx.chat.id);
-});
+        })
 
 
 bot.command('teste', ctx => {
