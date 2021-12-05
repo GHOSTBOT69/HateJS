@@ -36,6 +36,15 @@ bot.action('nekos', ctx =>
     })
 );
 
+bot.action('wall', ctx => {
+  axios.get('https://nekos.life/api/v2/img/wallpaper')
+    .then(res => {
+      let la = res.data.url
+      ctx.replyWithAnimation(la)
+    }).catch(e => {
+      console.log(e);
+    })
+})
 
 bot.command('boobs', ctx => {
     axios.get('https://nekos.life/api/v2/img/boobs')
