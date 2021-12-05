@@ -1,11 +1,37 @@
+// Reqs
 require('dotenv').config({ path: 'process.env' })
 const request = require('request');
 const { Telegraf } = require('telegraf')
 const axios = require('axios')
+const { generateBigWaifu, randomSeed } = require('waifulabs');
+const { join } = require('path');
 
+// Clients
+const cooldown = new Set();
+const { log, error } = require(join(__dirname, 'util'));
 const bot = new Telegraf(process.env.BOT_TOKEN)
 
+// =============
+
 // Comandos
+
+bot.on('message', async ctx => {
+    if(cooldown.has(ctx.chat.id)) return;
+    cooldown.add(ctx.chat.id);
+    try{
+        log(ctx);
+        const waifu = await generateBigWaifu(randomSeed());
+        await ctx.replyWithPhoto({
+            source: Buffer.from(waifu.image, 'base64'),
+            filename: 'waifu.png',
+        });
+    }catch(err){
+        error(ctx);
+        await ctx.reply('Error occurred').catch(() => {});
+    }
+    cooldown.delete(ctx.chat.id);
+});
+
 
 bot.command('teste', ctx => {
 let testMessage = `Apenas teste`;
@@ -76,7 +102,7 @@ bot.action('walledit', ctx => {
   axios.get('https://nekos.life/api/v2/img/wallpaper')
     .then(res => {
       let lass = res.data.url
-      ctx.editMessageMedia(ctx.update.callback_query.message.message_id, {media: lass})
+      bot.telegram.editMessageMedia(ctx.chat.id, ctx.update.callback_query.message.message_id, media: lass)
     })
 })
 
