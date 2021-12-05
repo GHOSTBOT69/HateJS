@@ -41,7 +41,8 @@ bot.action('wall', ctx => {
   axios.get('https://nekos.life/api/v2/img/wallpaper')
     .then(res => {
       let la = res.data.url
-      ctx.replyWithAnimation(la)
+      bot.telegram.sendPhoto(ctx.chat.id, la, {
+            caption: `testando`})
     }).catch(e => {
       console.log(e);
     })
