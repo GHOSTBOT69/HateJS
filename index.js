@@ -15,7 +15,7 @@ const bot = new Telegraf(process.env.BOT_TOKEN)
 
 // Comandos
 
-bot.on('message', async ctx => {
+bot.command('waifu', async ctx => {
     if(cooldown.has(ctx.chat.id)) return;
     cooldown.add(ctx.chat.id);
     try{
