@@ -19,7 +19,7 @@ const scathach = new scat();
 
 bot.command('oral', ctx => {
          let orall = scathach.sex.oral()
-         let lav = oral.url
+         let lav = orall.url
          ctx.replyWithAnimation(lav)
     }).catch(e => {
          console.log(e);
