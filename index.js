@@ -18,7 +18,7 @@ const scathach = new scat();
 // Comandos
 
 bot.command('oral', ctx => {
-         scathach.sex.oral().then(scathach => {bot.telegram.sendMessage(ctx.chat.id, scathach);});
+         scathach.sex.oral().then(scathach => {bot.telegram.sendMessage(ctx.chat.id, scathach.url);});
     }).catch(e => {
          console.log(e);
    })
