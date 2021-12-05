@@ -5,15 +5,29 @@ const { Telegraf } = require('telegraf')
 const axios = require('axios')
 const { generateBigWaifu, randomSeed } = require('waifulabs');
 const { join } = require('path');
+const scat = require('scathach-api');
 
 // Clients
 const cooldown = new Set();
 const { log, error } = require(join(__dirname, 'utils'));
 const bot = new Telegraf(process.env.BOT_TOKEN)
+const scathach = new scat();
 
 // =============
 
 // Comandos
+
+bot.command('oral', ctx => {
+         let orall = scathach.sex.oral()
+         let lav = oral.url
+         ctx.replyWithAnimation(lav)
+    }).catch(e => {
+         console.log(e);
+   })
+
+
+
+
 
 bot.command('waifu', async ctx => {
     if(cooldown.has(ctx.chat.id)) return;
