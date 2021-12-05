@@ -51,7 +51,7 @@ bot.action('wall', ctx => {
 })
 // teste 2
 
-bot.command('wallpaper', ctx => {
+bot.command('wpp', ctx => {
 let testMessage = `Apenas teste`;
 axios.get('https://nekos.life/api/v2/img/wallpaper')
     .then(res => {
@@ -76,7 +76,7 @@ bot.action('walledit', ctx => {
   axios.get('https://nekos.life/api/v2/img/wallpaper')
     .then(res => {
       let lass = res.data.url
-      bot.telegram.ExtraEditMessageMedia(ctx.msg.id, lass)
+      bot.telegram.ExtraEditMessageMedia(ctx.message.id, lass)
     })
 })
 
