@@ -10,7 +10,8 @@ const bot = new Telegraf(process.env.BOT_TOKEN)
 bot.command('teste', ctx => {
 let testMessage = `Apenas teste`;
 let pic = `https://telegra.ph/file/8d9a71b8f7bbcdb625b0f.jpg`
-bot.telegram.sendPhoto(ctx.chat.id, pic, {testMessage,
+bot.telegram.sendPhoto(ctx.chat.id, pic, {
+        caption: testMessage,
         reply_markup: {
             inline_keyboard: [
                 [   {
