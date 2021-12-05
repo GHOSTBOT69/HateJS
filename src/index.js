@@ -76,7 +76,7 @@ bot.action('walledit', ctx => {
   axios.get('https://nekos.life/api/v2/img/wallpaper')
     .then(res => {
       let lass = res.data.url
-      bot.telegram.editMessageMedia(ctx.message.message_id, lass)
+      bot.telegram.editMessageMedia(ctx.message.message_id, {media: lass})
     })
 })
 
