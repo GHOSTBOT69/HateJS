@@ -8,13 +8,18 @@ const bot = new Telegraf(process.env.BOT_TOKEN)
 // Comandos
 
 bot.command('teste', ctx => {
-let testMessage = `test`;
-bot.telegram.sendMessage(ctx.chat.id, testMessage, {
+let testMessage = `Apenas teste`;
+let pic = `https://telegra.ph/file/8d9a71b8f7bbcdb625b0f.jpg`
+bot.telegram.sendPhoto(ctx.chat.id, pic, testMessage, {
         reply_markup: {
             inline_keyboard: [
-                [{
+                [   {
                         text: "Nekos",
                         callback_data: 'nekos'
+                    },
+                    {
+                        text: "Wall",
+                        callback_data: 'wall'
                     }
                 ],
             ]
