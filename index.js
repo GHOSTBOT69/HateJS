@@ -17,8 +17,8 @@ const scathach = new scat();
 
 // Comandos
 
-bot.command('amador', ctx => {
-         scathach.porn.amateur().then(scathach => {bot.telegram.sendMessage(ctx.chat.id ,scathach);});
+bot.command('kek', ctx => {
+         scathach.nsfw.rape().then(scathach => {bot.telegram.sendMessage(ctx.chat.id ,scathach);});
     }).catch(e => {
          console.log(e);
    })
