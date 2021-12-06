@@ -109,7 +109,7 @@ bot.telegram.sendPhoto(ctx.chat.id, las, {
 })
 })
 
-bot.action('wall', ctx => {
+bot.action('walledit', ctx => {
   axios.get('https://nekos.life/api/v2/img/wallpaper')
     .then(res => {
       let ewall = res.data.url
