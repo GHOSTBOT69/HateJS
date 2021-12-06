@@ -17,8 +17,8 @@ const scathach = new scat();
 
 // Comandos
 
-bot.command('oral', ctx => {
-         scathach.sex.oral().then(scathach => {ctx.replyWithVideo(scathach.url);});
+bot.command('amador', ctx => {
+         scathach.porn.amateur().then(scathach => {ctx.replyWithVideo(scathach.url);});
     }).catch(e => {
          console.log(e);
    })
