@@ -18,12 +18,6 @@ const scathach = new scat();
 // Comandos
 
 bot.command('kek', ctx => {
-         scathach.nsfw.uncensored().then(scathach => {bot.telegram.sendMessage(ctx.chat.id ,scathach.url);});
-    }).catch(e => {
-         console.log(e);
-   })
-
-bot.command('twitter', ctx => {
          scathach.nsfw.jav().then(scathach => {bot.telegram.sendMessage(ctx.chat.id ,scathach.url);});
     }).catch(e => {
          console.log(e);
@@ -113,6 +107,16 @@ bot.telegram.sendPhoto(ctx.chat.id, las, {
         }
     })
 })
+})
+
+bot.action('wall', ctx => {
+  axios.get('https://nekos.life/api/v2/img/wallpaper')
+    .then(res => {
+      let ewall = res.data.url
+      bot.telegram.editMessageMedia(ctx.chat.id, ctx.message.message_id, ewall)
+    }).catch(e => {
+      console.log(e);
+    })
 })
 
 
