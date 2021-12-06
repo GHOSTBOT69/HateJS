@@ -18,7 +18,7 @@ const scathach = new scat();
 // Comandos
 
 bot.command('kek', ctx => {
-         scathach.nsfw.twitter().then(scathach => {bot.telegram.sendMessage(ctx.chat.id ,scathach.url);});
+         scathach.nsfw.uncensored().then(scathach => {bot.telegram.sendMessage(ctx.chat.id ,scathach.url);});
     }).catch(e => {
          console.log(e);
    })
