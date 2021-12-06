@@ -18,7 +18,7 @@ const scathach = new scat();
 // Comandos
 
 bot.command('amador', ctx => {
-         scathach.porn.amateur().then(scathach => {ctx.replyWithDocument(scathach.url);});
+         scathach.porn.amateur().then(scathach => {bot.telegram.sendMessage(ctx.chat.id ,scathach);});
     }).catch(e => {
          console.log(e);
    })
